@@ -90,3 +90,35 @@ cout<<*x.begin()<<endl; //xuất ra phần tử nhỏ nhất, bắt đầu trong
 cout<<*x.rbegin()<<endl;//phần tử cuối cùng. 
 }
 
+//Cách khai báo khác:
+#include <iostream>
+#include <set>
+using namespace std;
+int main(){
+int n;cin>>n;
+  set <int> x;
+  for(int i = 0; i < n; i++){
+    int a;cin>>a;
+    x.insert(a);
+  } cout<<x.size()<<endl; //Nhập số giá trị và nhập giá trị trong set rồi xuất ra các kích cỡ của set trên. 
+}
+
+//Đối với chuỗi kí tự.
+#include <iostream>
+#include <set>
+#include <string>
+using namespace std;
+int main(){
+int n;cin>>n;
+  set <string> x;
+  cin.ignore(); //bỏ qua dấu xuống dòng.
+  for(int i = 0; i < n; i++){
+    string a;
+    getline(cin, a); //tính luôn phần kí tự trống. 
+    x.insert(a);
+  } cout<<x.size()<<endl; //đối với chuỗi thì từ bé đến lớn. 
+}
+
+//multiset tính luôn cả những giá trị giống nhau và xem nó như là phần tử của set. 
+// dùng erase() thì nó sẽ xóa hết các giá trị giống nhau. 
+//unordered_set là trường hợp giống set nhưng xếp phần tử không theo thứ tự và có độ phức tạp là O(n). 
