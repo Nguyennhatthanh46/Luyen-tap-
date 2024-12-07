@@ -22,7 +22,7 @@ for (auto y: tong){
     cout<<y<<" ";
 }
 }
-*/
+/*
 Chèn 1 giá trị cụ thể vào mảng
 */
 #include <iostream>
