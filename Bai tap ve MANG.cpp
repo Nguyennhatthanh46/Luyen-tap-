@@ -73,3 +73,38 @@ int main() {
 
     return 0;
 }
+
+/* Kết quả bài tập dưới đây.
+*/
+#include <iostream>
+using namespace std;
+int fun(int arr[][6], int n)
+{
+    int i,j;
+//Xét các từ trái sang phải xem các hàng có bằng 0 hoặc 1 hết hay không. 
+   for (i=0; i < n; i++)
+{     for (j=0;j<n;j++) //Xét từ cột xem thõa mãn hay không.
+        if(arr[i][j]!=0) //Nếu gặp giá trị khác 0 thì kết thúc.
+         break;
+    if(j==n) return i; //Nếu kết thúc vòng lặp mà không gặp break, thì giá trị j==n (vì vi phạm điều kiện i<n)
+
+   for (j=0;j<n;j++)
+    if(arr[i][j]!=1)
+        break;
+    if(j==n) return i;
+}
+return -1;
+}
+int main()
+{int a[6][6]={
+{0,1,1,1,1,1},
+{1,0,0,0,0,0},
+{1,0,1,0,0,1},
+{0,1,0,1,1,0},
+{1,1,1,1,1,1},
+{0,0,0,0,0,0},
+};
+cout<<fun(a,6);
+return 0;
+}
+// Kết quả ra 1. Do các hàng 0 1 2 3, không liên tục. Riêng hàng 4 thì thỏa mãn điều kiện (do = 1) nên i = 4. 
