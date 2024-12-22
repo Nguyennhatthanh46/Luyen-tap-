@@ -52,3 +52,70 @@ Fun(a,n);
 return 0;
 }
 
+
+/* Nhập măng 1 chiều A gồm N phần từ số nguyên.
+Xóa tất cả các phần tử là số nguyên tố trong màng A
+Input
+Nhập N và giá trị các phần tử trong màng.
+    
+Output
+Xuất ra mảng A sau khi xóa tất cả các phần tử là số nguyên tố
+
+INPUT                              OUTPUT
+------------------------------------------------
+1                                  9
+9                                  
+------------------------------------------------
+5                                  1 4
+1 2 3 4 5      
+------------------------------------------------
+3                                  9 1
+9 5 1   
+*/
+
+#include <iostream>
+#include <math.h>
+#define MAX 1000
+using namespace std;
+
+bool songuyento(int n){
+if(n<2) return false;
+if(n>2&&n%2==0) return false;
+for(int i = 2;i<=sqrt(n);i++){
+    if(n%i==0)return false;
+}
+return true;
+}
+void Input(int a[],int &n){
+cin>>n;
+for(int i = 0; i < n;i++){
+    cin>>a[i];
+}
+}
+void Fun(int a[],int &n){
+int b[MAX];
+int j = 0;
+for(int i = 0; i < n;i++){
+    if(songuyento(a[i])==false){
+        b[j++]=a[i];
+    }
+}
+for(int i = 0; i<j;i++){
+    a[i]=b[i];
+}n = j;
+}
+
+void Output(int a[],int n){
+for(int i = 0; i < n;i++){
+    cout<<a[i]<<" ";
+}
+}
+
+int main(){
+int a[MAX];
+int n;
+Input(a,n);
+Fun(a,n);
+Output(a,n);
+return 0;
+}
