@@ -290,3 +290,49 @@ return 0;
 
 
 
+//Bài 8.
+#include <iostream>
+using namespace std;
+struct point{int A,B;};
+int main()
+{
+	point a{1,2};
+	point *x;
+	x = new point;
+	x->A = 3;
+	x->B = 4;
+	cout<<x.A<<x.B;
+	cout<<a->A<<a->B;
+	return 0;
+}
+//Sửa lỗi chương trình trên. 
+//Đáp án:
+#include <iostream>
+using namespace std;
+struct point{int A,B;};
+int main()
+{
+	point a{1,2};
+	point *x;
+	x = new point;//con trỏ được cấp phát động nên không thay đổi các giá trị đến A. 
+	x->A = 3;
+	x->B = 4;
+	cout<<x->A<<x->B;
+	cout<<a.A<<a.B;
+           delete x;
+	return 0;
+} //Kết quả:3412
+//Nếu muốn chương trình chạy và cho các giá trị thuộc tính a và b thay đổi thì cần tham chiếu đến a. 
+#include <iostream>
+using namespace std;
+struct point{int A,B;};
+int main()
+{
+	point a{1,2};
+	point *x = &a;
+	x->A = 3;
+	x->B = 4;
+	cout<<x->A<<x->B;
+	cout<<a.A<<a.B;
+	return 0;
+}//Kết quả: 3434
