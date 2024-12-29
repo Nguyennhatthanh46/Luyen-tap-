@@ -157,3 +157,136 @@ sv2->diemly = 9;
 delete sv2; //Xóa vùng nhớ.
 return 0;
 */
+
+
+
+/* Bài 6.
+Điền vào các vị trí trống để hoàn chỉnh một chương trình cho phép nhập một đa giác (DAGIAC) có n điểm (DIEM), với 3 ≤ n ≤ 10. 
+Chương trình yêu cầu người dùng nhập số điểm của đa giác, sau đó nhập tọa độ của từng điểm. Ví dụ, khi nhập đa giác ABCD, cần phải nhập tọa độ của 4 điểm (A, B, C, D) tạo thành đa giác. 
+Chú ý, không cần kiểm tra tỉnh hợp lệ của đa giác và phải tận dụng được hàm nhập một điểm (NhapMotDiem) trong hàm nhập một đa giác NhapMotDaGiac).
+*/
+#include <iostream>
+using namespace std;
+#define MAXN 10
+struct DIEM {
+int x,y;
+};
+struct DAGIAC{
+int n;
+DIEM *p;
+};
+
+void NhapMotDiem([1]){
+[2]
+}
+
+[3] NhapMotDaGiac([4]){
+[5]
+[6]
+[7]
+[8]
+[9]
+}
+
+int main(){
+DAGIAC A;
+A = NhapMotDaGiac();
+return 0;
+}
+/*
+Đáp án:
+#include <iostream>
+using namespace std;
+#define MAXN 10
+struct DIEM {
+int x,y;
+};
+struct DAGIAC{
+int n;
+DIEM *p;
+};
+void NhapMotDiem(DIEM &a){
+cin>>a.x>>a.y;
+}
+DAGIAC NhapMotDaGiac(){
+DAGIAC d;
+cin>>d.n;
+d.p = new DIEM[d.n];
+for(int i = 0; i<d.n;i++){
+    NhapMotDiem(d.p[i]);
+}
+return d;
+}
+int main(){
+DAGIAC A;
+A = NhapMotDaGiac();
+delete[] A.p;
+return 0;
+}
+*/
+
+
+
+//Bài 6.
+/* Điền vào các vị trí trống để hoàn chỉnh đoạn chương trình nhập Đa thức thưa một biến. Định nghĩa: Đa thức một biển f(x) có dạng:
+S=an.x^n + an-1.x^(n-1)+...+ ao
+Với ai (i: 0..n) là hệ số, x là biển, n là số mũ lớn nhất trong đa thức.
+Ví dụ đa thức thưa: 3x^4+6x^10-9x^100
+*/
+#include <iostream>
+using namespace std;
+#define MAXN 1000
+struct DONTHUC{
+float heso;
+int somu;
+};
+struct DATHUC{
+[1]
+int soluong;
+};
+void Nhap([2]){
+cin>>a.heso>>a.somu;
+}
+DATHUC Nhap(){
+DATHUC A;
+cin>>A.soluong;
+for(int i = 0;i<A.soluong;i++){
+ Nhap([3]);
+}
+return A;
+}
+int main(){
+DATHUC B;
+B = Nhap();
+}
+//Đáp án: 
+/* [1] DONTHUC donthuc[MAXN];
+[2] DONTHUC &a;
+[3] A.donthuc[i];
+*/
+
+
+
+//VI DU ve chuong trinh:
+#include <iostream>
+#include <cstring>
+using namespace std;
+struct SACH{
+char Ten[100];
+char Tacgia[50];
+float Gia;
+};
+int main(){
+SACH x;
+SACH *p = &x;
+cin.getline(p->Ten,100);
+cin.getline(p->Tacgia,50);
+cin>>p->Gia;
+cout<<"TEN: "<<p->Ten<<endl;
+cout<<"TACGIA: "<<p->Tacgia<<endl;
+cout<<"GIA: "<<p->Gia<<endl;
+return 0;
+}
+
+
+
